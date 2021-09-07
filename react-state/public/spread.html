@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input name="b_name" placeholder="이름을 입력하세요" />
+  </body>
+  <script>
+    // input에 name속성이 b_name 인 요소
+    const b_name = document.querySelector("input[name='b_name'");
+    b_name.addEventListener("change", (e) => {
+      // const name = e.target.name; // b_name
+      // const value = e.target.value; // 우리가 입력한 데이타
+      // 위와 같은 코드 (변수를 한꺼번에 꺼내기, 전개연산자)
+      const { name, value } = e.target;
+
+      // const jData = {name : value} 였다면 아래 오류발생코드가 정상코드
+      const jData = { [name]: value };
+      console.log(jData.name); // 오류발생
+      console.log(jData.b_name);
+    });
+
+    // 대괄호는... 변수의 동적할당
+  </script>
+</html>
