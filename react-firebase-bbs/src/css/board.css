@@ -1,0 +1,21 @@
+table.board {
+  width: 90%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+table.board tr {
+  border-bottom: 1px solid black;
+  padding: 1rem;
+}
+
+table.board th {
+  background-color: #ddd;
+}
+
+table.board th,
+table.board td {
+  padding: 8px;
+  cursor: pointer;
+}
