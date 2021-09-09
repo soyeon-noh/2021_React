@@ -1,5 +1,5 @@
 form.write {
-  margin: 0 auto;
+  margin: 30px auto;
 }
 
 form.write input {
@@ -11,12 +11,14 @@ form.write input {
 }
 
 div.button {
+  text-align: right;
+  margin: 0 auto;
   width: 400px;
 }
 
 div.button button {
   padding: 0.7rem;
-  border: 1px solid #777;
+  border: none;
   border-radius: 5px;
   background-color: rgb(38, 120, 255);
   color: white;
