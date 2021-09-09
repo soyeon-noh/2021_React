@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const MainNav = () => {
   const activeNavStyle = {
-    backgroundColor: "green",
+    backgroundColor: "#2678ff",
   };
   return (
     <ul className="main_menu">
