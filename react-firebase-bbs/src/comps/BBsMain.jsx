@@ -1,6 +1,6 @@
 import React from "react";
 
-const Board = () => {
+const BBsMain = () => {
   return (
     <div className="board">
       <table className="board">
@@ -21,4 +21,4 @@ const Board = () => {
   );
 };
 
-export default Board;
+export default BBsMain;

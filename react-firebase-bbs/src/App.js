@@ -1,10 +1,10 @@
 import "./App.css";
-import Header from "./comps/Header";
-import MainNav from "./comps/MainNav";
-import { BrowserRouter, Route } from "react-router-dom";
 import "./css/menu.css";
 import "./css/board.css";
+import Header from "./comps/Header";
+import MainNav from "./comps/MainNav";
 import BBsMain from "./comps/BBsMain";
+import { BrowserRouter, Route } from "react-router-dom";
 
 function App() {
   return (
