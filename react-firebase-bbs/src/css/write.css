@@ -1,0 +1,23 @@
+form.write {
+  margin: 0 auto;
+}
+
+form.write input {
+  padding: 0.7rem;
+  margin: 0.3rem;
+  width: 400px;
+  border: none;
+  border-bottom: 1px solid #777;
+}
+
+div.button {
+  width: 400px;
+}
+
+div.button button {
+  padding: 0.7rem;
+  border: 1px solid #777;
+  border-radius: 5px;
+  background-color: rgb(38, 120, 255);
+  color: white;
+}
