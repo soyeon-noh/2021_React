@@ -16,3 +16,32 @@
 - 9.x 버전에 문제가 있어서 8.10.0 버전을 설치할 것이다.
 - yarn add firebase@8.10.0 / npm install firebase@8.10.0
 - 날짜와 시간 설정을 위한 moment 설치 : yarn add moment
+
+## firebase에 호스팅
+
+- 내가만든 프로젝트를 다른 사람이 다른 컴퓨터에서 다른 브라우져도 접속할 수 있도록 외부의 서버에 deploy 하기
+
+## 배포 도구 설치
+
+- npm install -g firebase-tools(신버전 이걸사용) / firebase-cli(옛날버전)
+- firebase-tools를 설치하는데 오류가 나는 경우 : npm uninstall -g firebase-cli
+
+- 글로벌을 설치할때 yarn을 사용할때문제가 생기는 경우가많대..
+
+## react 프로젝트를 firebase에 배포하기
+
+- 프로젝트를 build : yarn build
+- firebase login 하기 : firebase login
+- 프로젝트에 firebase deploy 설정하기 : firebase init hosting
+- 프로젝트를 firebase에 Deploy(배포하기)
+  : firebase deploy --only hosting
+
+## 수정후 재배포
+
+- yarn build
+- firebase deploy --only hosting
+- (only hosting을 안해줘도되지만 이걸배면 좀 오래걸린다)
+
+## 서버를 닫으려면
+
+- firebase사이트에서 프로젝트를 삭제한다.

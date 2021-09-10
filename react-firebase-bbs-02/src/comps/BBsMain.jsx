@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "../css/BBs.css";
 import { firestore } from "../config/BBSConfig";
 import { useHistory } from "react-router-dom";
@@ -51,18 +51,29 @@ function BBsMain() {
     setBBsData(bbsList);
   };
 
-  useEffect(firebaseFetch, []);
+  // fetch를 사용할때 callback을 거쳐서하면 경고가 사라진다
+  // 효율성의 문제는 모르겠지만 권장하는 코드이다
+  const fetchCallBack = useCallback(firebaseFetch, []);
+  useEffect(firebaseFetch, [fetchCallBack]);
 
   const bbsBody = bbsData.map((bbs) => {
+    // 만약 함수를 밖으로 빼고싶다면 이렇게 bbsBody 내부에 만들어줘야한다.
+    // const onClickId = (e) => {
+    //   const id = e.target.closest("TR").dataset.id;
+    //   // alert("안녕" + id);
+    //   // write URL에 id 값을 가지고 redirect를 수행하라
+    //   router.push(`/detail/${id}`);
+    // };
+
     return (
       <tr
         key={bbs.id}
         data-id={bbs.id}
         onClick={(e) => {
           const id = e.target.closest("TR").dataset.id;
-          alert("안녕" + id);
+          // alert("안녕" + id);
           // write URL에 id 값을 가지고 redirect를 수행하라
-          router.push(`/write/${id}`);
+          router.push(`/detail/${id}`);
         }}
       >
         <td>{bbs.b_date}</td>
