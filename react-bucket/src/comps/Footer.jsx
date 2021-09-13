@@ -2,8 +2,8 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer>
-      <address>CopyRight &copy; soyeon-noh</address>
+    <footer className="footer">
+      <address>CopyRigt &copy; soyeon-noh</address>
     </footer>
   );
 }
