@@ -2,6 +2,7 @@
 
 FirebaseConfig.\*
 BBSConfig.js
+mongoConfig.json
 
 # Logs
 

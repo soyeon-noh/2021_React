@@ -1,8 +1,9 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
+const BUCKET = require("../models/bucket");
 
 const bucketList = {
-  b_id: 0,
+  b_id: "0001",
   b_flag: 0,
   b_title: "Nodejs 연동",
   b_start_date: "2021-09-14 00:00:00",
@@ -16,8 +17,19 @@ router.get("/", function (req, res, next) {
   res.render("index", { title: "Express" });
 });
 
-router.get("/data", (req, res) => {
-  res.json(bucketList);
+/**
+ * react로 부터 데이터를 받아서 mongoDB에 insert를 수행하기
+ */
+router.post("/insert", async (req, res) => {
+  //   console.table(req.body);
+  const result = await BUCKET.create(req.body); // ... 뭐라설명하셨는데 모르겠음
+  await res.json(result);
+});
+
+router.get("/data", async (req, res) => {
+  const result = await BUCKET.find({});
+  res.json(result);
+  //   console.log(result);
 });
 
 module.exports = router;
