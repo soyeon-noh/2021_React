@@ -12,7 +12,7 @@ function BuckMain() {
     const res = await fetch("http://localhost:5000/data"); // 데이터를 url로 요청해서
     const bucketList = await res.json(); // 결과중 json을 추출하고
     // console.log(bucketList);
-    setBuckList(bucketList); // setBucketList를 통해 저장하고 랜더링
+    await setBuckList(bucketList); // setBucketList를 통해 저장하고 랜더링
   }, []);
 
   useEffect(bucketFetch, [bucketFetch]);

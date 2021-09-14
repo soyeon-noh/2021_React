@@ -27,8 +27,8 @@ router.post("/insert", async (req, res) => {
 });
 
 router.get("/data", async (req, res) => {
-  const result = await BUCKET.find({});
-  res.json(result);
+  const result = await BUCKET.find({}); // 데이타를 가져오기전에
+  await res.json(result); // json을 넘겨버리는 걸 방지하기 위한 await
   //   console.log(result);
 });
 

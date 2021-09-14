@@ -3,6 +3,14 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+/**
+ * CROSS ORIGIN RESOURCE SHARE
+ * 서로다른 서버간에 데이터를 주고받을때
+ * 보안문제로 인해 발생할 수 있는 ISSUE
+ *
+ * XSS 공격
+ */
+
 const cors = require("cors");
 const mongoose = require("mongoose");
 
@@ -29,7 +37,24 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 
 var app = express();
-app.use(cors());
+
+// CORS를 허용할 Origin List 만들기
+const whiteList = [
+  "http://localhost:5000",
+  "http://localhost:3000",
+  "http://callor.com:15500",
+];
+
+const corsOption = {
+  origin: (origin, callback) => {
+    const isWhiteList = whiteList.indexOf(origin) !== -1;
+    callback(null, isWhiteList);
+  },
+  credentials: true,
+};
+
+app.use(cors(corsOption)); // whiteList에 있는 주소가아니면 허용안됨.
+// app.use(cors()); // 이렇게하면 모든 게 다 허용된다.
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
