@@ -8,6 +8,7 @@ function BuckInput(props) {
       // input에 입력된 bucket text를 전달하기
 
       props.buck_insert(bucket);
+      e.target.value = ""; // 입력후 enter -> 입력박스에 적힌 글 지워줌
     }
   };
 

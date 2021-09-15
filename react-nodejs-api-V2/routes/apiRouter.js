@@ -43,47 +43,58 @@ const BUCKET = require("../models/bucket");
  * 			router.delete("/book/delete")
  */
 
-const retData = [
-  {
-    b_id: "0001",
-    b_title: "반갑습니다.",
-    b_start_date: "2021-09-13",
-    b_end_date: "",
-    b_end_check: false,
-    b_cancel: false,
-  },
-  {
-    b_id: "0002",
-    b_title: "나나스크",
-    b_start_date: "2021-09-14",
-    b_end_date: "",
-    b_end_check: false,
-    b_cancel: true,
-  },
-];
-
 /**
  * POST 로 받는 데이터는 주로 form 에 담긴 데이터이다.
  * API Server에서는 fetch()를 통해 데이터를 전달받을때도 사용한다.
  * requset의 body에 담겨서 전달되기 때문에
  * req.body 에서 데이터를 추출하면 된다.
  */
-router.post("/bucket", (req, res) => {
+router.post("/bucket", async (req, res) => {
   const body = req.body;
-  console.log("데이터 추가하기");
+  const result = await BUCKET.create(body);
+  console.log("데이터 추가하기", result);
   console.log(body);
-  res.send("끝");
+  res.json({ result: "OK" });
 });
 
-router.put("/bucket", (req, res) => {
+router.put("/bucket", async (req, res) => {
   const body = req.body;
-  console.log("데이터 업데이트 하기");
+  await BUCKET.findOneAndUpdate({ b_id: body.b_id }, body);
+  res.json({ result: "OK" });
+});
+
+/**
+ * 3 Tier (3 layer App)
+ * react -> node -> atlas
+ * atlas -> node -> react
+ *
+ * 		node가 마치 미들웨어같다
+ *
+ * findOnd() 이 return 하는 doc가 성능상 문제로
+ * null 값이 되어 overwirte()가 비정상 작동 되므로
+ * 사용하지 말자!!!
+ */
+router.put("/bucket", async (req, res) => {
+  const body = req.body; // body를 추출
+  // DB에서 b_id 값이 body.b_id 와 같은 데이터를 SELETE 하기
+  const doc = await BUCKET.findOne({ b_id: body.b_id });
+  console.log(doc);
+  // select 한 model 객체의 모든 요소 데이터를
+  // body로 받은 데이터로 변경하라
+  // doc = { ...doc, b_id : body.b_id, b_title : body.b_title }
+  await doc.overwrite(body); // 추출한 body로 overwrite
+  // 변경된 데이터를 DB에 update 하라
+  await doc.save(); // 그리고 save
+
+  await console.log("데이터 업데이트 하기");
+  await console.table(body);
 });
 
 // localhost:3000/api/get
-router.get("/get", (req, res) => {
+router.get("/get", async (req, res) => {
+  const buckets = await BUCKET.find({});
   console.log("전체 리스트 요청하기");
-  res.json(retData);
+  res.json(buckets);
 });
 
 // localhost:3000/api/1/get

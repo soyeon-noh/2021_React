@@ -1,3 +1,4 @@
+import moment from "moment";
 import React, { useState } from "react";
 
 const b_flag_text = ["일반", "중요", "매우중요", "긴급"];
@@ -5,7 +6,7 @@ const b_flag_text = ["일반", "중요", "매우중요", "긴급"];
 // { bucket }
 // props.bucket을 직접 사용하도록 변수 생성하기
 function BuckItem({ args, bucket }) {
-  const { flag_change, bucket_update, bucket_complet, bucket_cancel } = args;
+  const { flag_change, bucket_update, bucket_complete, bucket_cancel } = args;
 
   const [b_update, setB_Update] = useState({
     b_title: "",
@@ -20,6 +21,7 @@ function BuckItem({ args, bucket }) {
     // let b_id = e.target.closest("TR").dataset.id; // 아래와똑같이 같은값이다
     let b_id = itemTr.dataset.id;
     const itemTd = e.target;
+
     if (itemTd.tagName === "TD") {
       // 각각의 항목들이 클릭되면
       const className = itemTd.className;
@@ -35,7 +37,7 @@ function BuckItem({ args, bucket }) {
           ? "완료를 취소합니다"
           : "버킷을 완료했나요?";
         if (window.confirm(message)) {
-          bucket_complet(bucket.b_id);
+          bucket_complete(bucket.b_id);
         }
       }
     }
