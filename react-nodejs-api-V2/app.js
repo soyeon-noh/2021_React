@@ -4,8 +4,34 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
+const { USERID, PASSWORD } = require("./config/mongoConfig");
 const atlasURL =
-  "mongodb+srv://noso:<password>@cluster0.gxw4m.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+  `mongodb+srv://` +
+  `${USERID}` +
+  `:${PASSWORD}@cluster0.gxw4m.mongodb.net/` +
+  `myFirstDatabase?retryWrites=true&w=majority`;
+
+const mongoose = require("mongoose");
+// event를 발생시켜서 상태를 모니터링 하는 객체
+const dbConn = mongoose.connection;
+// 정상적으로 연결되었을 때 실행되는 event 핸들러
+// 최초에 연결이 성공했을 때 한번만(once) 작동되도록 수행
+// (on을하면 저절로 끊었다 연결했다 하는 경우가있어서 once로 한다)
+dbConn.once("open", () => {
+  console.log("MongoDB Open OK");
+});
+
+// 작동되는 과정에 오류가 발생하면 console에 오류메시지를 보여주기
+// 방법 1
+dbConn.on("error", () => {
+  console.error;
+});
+//방법 2 매개변수
+dbConn.on("error", (error) => {
+  console.log(error);
+});
+
+mongoose.connect(atlasURL);
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");

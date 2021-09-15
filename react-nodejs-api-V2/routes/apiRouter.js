@@ -1,5 +1,7 @@
 const express = require("express");
 const router = express.Router();
+
+const BUCKET = require("../models/bucket");
 /**
  * RESTFul
  * 클라이언트에서 요청할 때
