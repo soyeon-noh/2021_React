@@ -3,6 +3,7 @@
 FirebaseConfig.\*
 BBSConfig.js
 mongoConfig.json
+mongoConfig.js
 
 # Logs
 
