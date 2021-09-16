@@ -55,7 +55,7 @@ const arrayEx = () => {
 
 // const RenderSquare = (props) => {
 // const { squares } = props;
-const RenderSquare = ({ squares, changeSquares }) => {
+const RenderSquare = ({ squares, onButtonClick }) => {
   // props로 한꺼번에 받거나 {squares} 로 하나만 받는다
   // props로 받았을경우
   // const {squares} = props;로 추출해줘야한다.
@@ -64,11 +64,6 @@ const RenderSquare = ({ squares, changeSquares }) => {
     [3, 4, 5],
     [6, 7, 8],
   ];
-
-  const onButtonClick = (e) => {
-    const index = e.target.dataset.index;
-    changeSquares(index);
-  };
 
   let index = 0;
   const buttons = arrayBox.map((subBox) => {
