@@ -1,0 +1,23 @@
+.App {
+  text-align: center;
+}
+
+div.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+
+  background-color: rgb(83, 73, 92);
+}
+
+div.main-square div {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+div.main-square button {
+  border: 0.6px solid grey;
+  width: 5rem;
+  height: 5rem;
+}
