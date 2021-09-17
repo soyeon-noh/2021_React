@@ -67,6 +67,7 @@ const RenderSquare = ({ squares, changeSquares }) => {
 
   const onButtonClick = (e) => {
     const index = e.target.dataset.index;
+
     changeSquares(index);
   };
 
@@ -86,4 +87,42 @@ const RenderSquare = ({ squares, changeSquares }) => {
   return buttons;
 };
 
-export { RenderSquare };
+/**
+ * 0, 1, 2
+ * 3, 4, 5
+ * 6, 7, 8
+ */
+
+let i = 0;
+const calcWinner = (squares) => {
+  const wins = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
+
+  //   const winner = wins.map(win => calc(win));
+
+  const winner = wins.filter((win) => {
+    // console.table(win);
+    if (
+      squares[win[0]] &&
+      squares[win[0]] === squares[win[1]] &&
+      squares[win[0]] === squares[win[2]]
+    ) {
+      console.log("sq", squares[win[0]]);
+      return true; // squares[win[0]];
+    } else {
+      return false;
+    }
+  });
+  console.log(winner?.length && squares[winner[0][0]]);
+  return winner.length && squares[winner[0][0]];
+};
+
+export { RenderSquare, calcWinner };

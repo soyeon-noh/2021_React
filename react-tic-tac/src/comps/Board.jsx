@@ -1,24 +1,45 @@
 import React, { useState } from "react";
 import { RenderSquare } from "../modules/main";
 
+let orderCount = 0;
+let nextTurn = "O";
+
 function Board() {
-  const [squares, setSquares] = useState(Array(9).fill("A"));
+  const [squares, setSquares] = useState(Array(9).fill(null));
+  const [turn, setTurn] = useState([["O", "X"]]);
 
-  const onButtonClick = (e) => {
-    const box = e.currentTarget;
+  // squares 배열의 index 번재 요소의 값을 변경하려고한다.
+  // 매개변수로 index 값을 넘겨받는다.
+  const changeSquares = (index) => {
+    // squares[index] = "B"; // 절대 불가
 
-    // if(box.tagName === "BUTTON");
-    // 만약 내부에 다른 태그가 있을경우
-    // tagName이 일치하는 것에만 실행하게 코드를 짜야한다.
-    // 지금은 없어도 된다.
-    const boxId = box.dataset.index;
-    const _squares = [...squares];
+    // const _squares = squares
+    // 배열을 다른 배열에 할당(저장)하면
+    // 배열의 값이 복제되지 않고
+    // 배열이 저장된 저장소 위치가 복제된다.
+    // 결국 _squares 와 squares 는 같은 배열이다.
+    // (A집과 B집에 같은 사람이 사는 것)
+    // 배열을 복제할때는 반드시 전개연산자로 수행한다.
+    const _squares = [...squares]; // 복제
+    const _turn = [...turn];
 
-    _squares[boxId] = "B";
+    // 현재 턴이 누구인지 지정
+    orderCount % 2 == 0 ? (_turn = ["O", "X"]) : (_turn = ["X", "O"]);
+    setTurn(_turn);
 
-    setSquares(_squares);
+    if (!_squares[index]) {
+      _squares[index] = turn[0];
+    } else if (_squares[index] != turn[0]) {
+      _squares[index] = turn[0];
+    } else {
+      return;
+    }
 
-    console.table(squares);
+    // 카운트 증가
+    orderCount++;
+    // 다음턴 알려주기
+    nextTurn = turn[1];
+    setSquares(_squares); // 복제된 배열을 원래 배열과 교체
   };
 
   // RenderSquare를 바닐라 함수로 불러 사용하는 방법
@@ -29,8 +50,8 @@ function Board() {
   // return <div><RenderSquare/><div>;
   return (
     <div>
-      <div>다음 플레이어 : O</div>
-      <RenderSquare squares={squares} onButtonClick={onButtonClick} />
+      <div>다음 플레이어 : {nextTurn}</div>
+      <RenderSquare squares={squares} changeSquares={changeSquares} />
     </div>
   );
 }
