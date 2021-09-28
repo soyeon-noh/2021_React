@@ -1,0 +1,22 @@
+ul.main_nav {
+  display: flex;
+  list-style: none;
+
+  background-color: darkred;
+  color: white;
+}
+
+ul.main_nav a {
+  display: inline-block;
+  padding: 0.7rem;
+  border-bottom: 2px solid transparent;
+}
+
+ul.main_nav a:hover {
+  border-bottom: 2px solid antiquewhite;
+}
+
+a.active_nav {
+  background-color: antiquewhite;
+  color: darkred;
+}
