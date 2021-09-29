@@ -19,7 +19,7 @@ function AddressInput({ stateGroup }) {
   // state를 변경시킬 수 있는 이벤트를 설정해놓으면
   // 변경된 값이 실시간으로 value에 반영되어 변경된 문자열이 보인다.
   return (
-    <div>
+    <div className="address_input">
       <input
         // value={address.a_name}
         // readOnly

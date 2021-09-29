@@ -15,7 +15,7 @@ function AddressList({ addrBook }) {
     );
   });
   return (
-    <table>
+    <table className="address_table">
       <thead>
         <tr>
           <th>ID</th>

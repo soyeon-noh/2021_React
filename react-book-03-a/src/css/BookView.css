@@ -1,0 +1,17 @@
+.book_view {
+  width: 80vw;
+  border: 1px solid #282c34;
+  margin: 20px auto;
+  padding: 0.7rem;
+  display: flex;
+}
+
+.book_view div {
+  flex: 1;
+  border: 1px solid #aaa;
+  margin: 10px;
+}
+
+.book_view p {
+  margin: 10px;
+}

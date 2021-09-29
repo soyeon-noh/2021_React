@@ -1,0 +1,18 @@
+.address_input {
+  display: flex;
+
+  margin: 1rem 0.5rem;
+}
+
+.address_input input {
+  margin: 0 0.4rem;
+}
+
+/* .address_table tr {
+  border-bottom: 1px solid black;
+} 이거안됨..*/
+
+.address_table th,
+.address_table td {
+  padding: 10px;
+}
