@@ -47,6 +47,20 @@ const AppContextProvider = ({ children }) => {
     alert("삭제");
   };
 
+  /**
+   * state를 관리(추가, 수정, 삭제) 하기 위하여
+   * setState() 를 반드시 props 에 담아서 하위 컴포넌트로 보내야 한다.
+   *
+   * 하지만 setState()는 어디선가 잘못 실행되면
+   * 실제 데이터에 문제가 발생할 수 있다.
+   *
+   * 어차피 setState()는 어디선가 발생하는 event handler에서
+   * 주로 사용하기 때문에
+   * 차라리 event handler를 만들어서 배포하면
+   * setState()가 어디에서 변화되는, 사용되는지
+   * 관리하기가 비교적 용이해진다.
+   */
+
   const propsData = {
     onChange,
     onClick,
