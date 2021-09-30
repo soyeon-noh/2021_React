@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Route } from "react-router-dom";
 import BookInput from "./BookInput";
 import BookContext from "../context/BookContext";
+import BookList from "./BookList";
 
 /**
  * 컴포넌트의 선택적 Rendering
@@ -14,7 +15,17 @@ function BookMain() {
     b_genre: "It 개발서",
   });
 
-  const providerData = { book, setBook };
+  const [bookList, setBookList] = useState([]);
+
+  // 상위 컴포넌트에서 이벤트를 생성하고
+  // 하위 컴포넌트로 전달할때는
+  // 반드시 e(event) 매개변수를 같이 포함하는 것이 좋다.
+  const onClick = (e) => {
+    alert("여기는 onClick");
+  };
+
+  // state는 물론, 함수도 보낼 수 있다.
+  const providerData = { book, setBook, bookList, setBookList, onClick };
 
   return (
     <>
@@ -26,7 +37,7 @@ function BookMain() {
           <BookInput />
         </Route>
         <Route path="/list" exact>
-          여기는 리스트 보이기
+          <BookList />
         </Route>
       </BookContext.Provider>
     </>

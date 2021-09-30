@@ -1,0 +1,10 @@
+.book_list {
+  width: 80vw;
+  border: 1px solid #aaa;
+  margin: 10px auto;
+}
+
+.book_list th,
+.book_list td {
+  padding: 0.4rem;
+}
