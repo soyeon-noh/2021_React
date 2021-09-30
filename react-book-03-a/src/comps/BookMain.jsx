@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import BookInput from "./BookInput";
 import BookContext from "../context/BookContext";
 import BookList from "./BookList";
+import UUID from "react-uuid";
 
 /**
  * 컴포넌트의 선택적 Rendering
@@ -11,6 +12,7 @@ import BookList from "./BookList";
  */
 function BookMain() {
   const [book, setBook] = useState({
+    b_id: UUID(), // UUID로 설정해놓지않으면 첫 데이터의 id가 없이 insert 된다.
     b_name: "자바야 놀자",
     b_genre: "It 개발서",
   });

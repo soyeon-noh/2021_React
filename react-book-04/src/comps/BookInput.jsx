@@ -1,12 +1,12 @@
-import React, { useContext } from "react";
+import React from "react";
 import "../css/BookInput.css";
 import BookView from "./BookView";
-import BookContext from "../context/BookContext";
 import MyButton from "../My/MyButton";
+import { useBookContext } from "../context/AppContextProvider";
 import UUID from "react-uuid";
 
 function BookInput() {
-  const { book, setBook, bookList, setBookList } = useContext(BookContext);
+  const { book, setBook, bookList, setBookList } = useBookContext(); // 매개변수없이 실행
 
   const onChangeHandler = (e) => {
     const { name, value } = e.target;

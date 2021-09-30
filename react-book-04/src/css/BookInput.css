@@ -1,0 +1,45 @@
+.book_input {
+  width: 80vw;
+  border: 1px solid #282c34;
+  margin: 10px auto;
+  /* padding: 0.7rem; */
+}
+
+.book_input div {
+  padding: 10px;
+}
+
+.book_input label,
+.book_input input {
+  display: block;
+  padding: 8px;
+  margin: 5px auto;
+  width: 80%;
+}
+
+.book_input label {
+  /* display: inline-block; */
+  /* width: 100px; */
+  /* text-align: right; */
+  text-align: left;
+  /* margin-right: 10px; */
+  font-weight: bold;
+  color: #282c34;
+}
+
+.book_input input {
+  /* display: inline-block; */
+  /* width: 300px; */
+  /* padding: 8px; */
+  border: 1px solid #aaa;
+}
+
+.book_input button {
+  padding: 10px;
+  margin: 10px;
+  border: none;
+  width: 160px;
+  border-radius: 2px;
+  background-color: #282c34;
+  color: #61dafb;
+}
