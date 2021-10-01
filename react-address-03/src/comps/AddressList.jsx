@@ -1,19 +1,11 @@
 import React from "react";
+import { useAddrContext } from "../context/AppContextProvider";
+import AddressItem from "./AddressItem";
 
-function AddressList({ addrBook }) {
-  const viewList = addrBook.map((addr, index) => {
-    // index를 화면에 보여주는 건 괜찮지만
-    // key 값으로 쓰면 안된다.
-    return (
-      <tr key={addr.a_id}>
-        <td>{index + 1}</td>
-        <td>{addr.a_name}</td>
-        <td>{addr.a_addr}</td>
-        <td>{addr.a_tel}</td>
-        <td>{addr.a_age}</td>
-        <td>{addr.a_memo}</td>
-      </tr>
-    );
+function AddressList() {
+  const { addrBook } = useAddrContext();
+  const list_view = addrBook.map((item, index) => {
+    return <AddressItem addr={item} key={item.a_id} index={index} />;
   });
   return (
     <table className="address_table">
@@ -27,7 +19,7 @@ function AddressList({ addrBook }) {
           <th>메모</th>
         </tr>
       </thead>
-      <tbody>{viewList}</tbody>
+      <tbody>{list_view}</tbody>
     </table>
   );
 }

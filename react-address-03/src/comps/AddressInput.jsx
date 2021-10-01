@@ -1,19 +1,10 @@
-import UUID from "react-uuid";
+import { useAddrContext } from "../context/AppContextProvider";
 
-function AddressInput({ stateGroup }) {
+function AddressInput() {
   // 매개변수로 props를 받으면 아래와 같이 먼저 stateGroup을 꺼내와야 한다.
   //   const { stateGroup } = props;
-  const { address, setAddress, addrBook, setAddrBook } = stateGroup;
 
-  const onChangeHandler = (e) => {
-    const { name, value } = e.target;
-    setAddress({ ...address, [name]: value });
-  };
-
-  const addrBookInsert = () => {
-    setAddress({ ...addrBook, a_id: UUID() });
-    setAddrBook([...addrBook, address]);
-  };
+  const { address, onChangeHandler, addrBookInsert } = useAddrContext();
 
   // value를 state값으로 설정하면 자동으로 readOnly가 된다.
   // state를 변경시킬 수 있는 이벤트를 설정해놓으면

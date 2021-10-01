@@ -1,14 +1,15 @@
 import React from "react";
-import AddressInput from "./AddressInput";
-import AddressList from "./AddressList";
 
-function Address({ stateGroup }) {
-  const { addrBook } = stateGroup;
+import AppContextProvider from "../context/AppContextProvider";
+
+function Address({ form, children }) {
   return (
-    <div>
-      <AddressInput stateGroup={stateGroup} />
-      <AddressList addrBook={addrBook} />
-    </div>
+    <AppContextProvider>
+      <main>
+        <section className="input">{form}</section>
+        <section className="list">{children}</section>
+      </main>
+    </AppContextProvider>
   );
 }
 

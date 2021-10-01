@@ -1,7 +1,11 @@
 import React from "react";
 
-function MainBody() {
-  return <div></div>;
-}
+const MainBody = () => {
+  return (
+    <>
+      <p>대한민국만세</p>
+    </>
+  );
+};
 
 export default MainBody;
