@@ -28,3 +28,8 @@
 .todo_text {
   flex: 1;
 }
+
+.checked {
+  text-decoration: line-through;
+  color: #adb5bd;
+}
