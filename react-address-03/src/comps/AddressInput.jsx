@@ -20,32 +20,41 @@ function AddressInput({ stateGroup }) {
   // 변경된 값이 실시간으로 value에 반영되어 변경된 문자열이 보인다.
   return (
     <div className="address_input">
+      <label>이름</label>
       <input
         // value={address.a_name}
         // readOnly
         name="a_name"
-        placeholder="이름"
+        placeholder="이름을 입력하세요"
         onChange={onChangeHandler}
       />
+      <label>나이</label>
       <input
-        value={address.a_addr}
-        readOnly
-        name="a_addr"
-        placeholder="주소"
+        type="number"
+        value={address.a_age}
+        name="a_age"
+        placeholder="나이를 입력하세요"
         onChange={onChangeHandler}
       />
+      <label>전화번호</label>
       <input
         value={address.a_tel}
-        readOnly
         name="a_tel"
-        placeholder="전화번호"
+        placeholder="전화번호를 입력하세요"
         onChange={onChangeHandler}
       />
+      <label>주소</label>
       <input
-        value={address.a_age}
-        readOnly
-        name="a_age"
-        placeholder="나이"
+        value={address.a_addr}
+        name="a_addr"
+        placeholder="주소를 입력하세요"
+        onChange={onChangeHandler}
+      />
+      <label>메모</label>
+      <input
+        value={address.a_memo}
+        name="a_memo"
+        placeholder="메모할 것이 있나요?"
         onChange={onChangeHandler}
       />
       <button onClick={addrBookInsert}>추가</button>

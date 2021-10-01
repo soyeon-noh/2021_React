@@ -11,6 +11,7 @@ function AddressList({ addrBook }) {
         <td>{addr.a_addr}</td>
         <td>{addr.a_tel}</td>
         <td>{addr.a_age}</td>
+        <td>{addr.a_memo}</td>
       </tr>
     );
   });
@@ -20,9 +21,10 @@ function AddressList({ addrBook }) {
         <tr>
           <th>ID</th>
           <th>이름</th>
-          <th>주소</th>
-          <th>전화번호</th>
           <th>나이</th>
+          <th>전화번호</th>
+          <th>주소</th>
+          <th>메모</th>
         </tr>
       </thead>
       <tbody>{viewList}</tbody>
