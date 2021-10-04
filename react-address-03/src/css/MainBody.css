@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:200");
+
+.main_body {
+  width: 50vw;
+
+  margin: 1rem auto;
+
+  font-family: "Raleway";
+}
+
+.main_body div {
+  margin: 1rem 0;
+}
+
+.img1,
+.img2,
+.img3 {
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  display: inline-block;
+  width: 5rem;
+  height: 5rem;
+}
+
+.img1 {
+  background-image: url("../noru.png");
+}
+
+.img2 {
+  background-image: url("../redbeen.png");
+}
+
+.img3 {
+  background-image: url("../mandu.png");
+}
+
+.what {
+  background-color: #0b93f6;
+}
+
+.speech_bubble {
+}

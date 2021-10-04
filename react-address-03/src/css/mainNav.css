@@ -1,9 +1,14 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:200");
+
 ul.main_nav {
   display: flex;
   list-style: none;
 
   background-color: darkred;
   color: white;
+
+  font-family: "Raleway";
+  font-weight: 600;
 }
 
 ul.main_nav a {

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:200");
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -20,7 +22,7 @@ a {
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 10s linear;
   }
 }
 
@@ -33,6 +35,8 @@ a {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+
+  font-family: "Raleway";
 }
 
 .App-link {

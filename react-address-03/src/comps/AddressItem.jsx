@@ -9,9 +9,9 @@ function AddressItem({ addr, index }) {
     <tr>
       <td>{index + 1}</td>
       <td>{a_name}</td>
-      <td>{a_addr}</td>
-      <td>{a_tel}</td>
       <td>{a_age}</td>
+      <td>{a_tel}</td>
+      <td>{a_addr}</td>
       <td>{a_memo}</td>
     </tr>
   );
