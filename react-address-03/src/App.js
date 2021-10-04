@@ -5,7 +5,7 @@ import "./css/guest.css";
 import MainNav from "./comps/MainNav";
 import { BrowserRouter, Route } from "react-router-dom";
 import MainBody from "./comps/MainBody";
-import Address from "./comps/Address";
+import FormLayout from "./comps/FormLayout";
 import AddressInput from "./comps/AddressInput";
 import AddressList from "./comps/AddressList";
 import GuestBookInput from "./comps/GuestBookInput";
@@ -22,14 +22,14 @@ function App() {
         <MainNav />
         <Route path="/" exact component={MainBody} />
         <Route path="/address">
-          <Address form={<AddressInput />}>
+          <FormLayout form={<AddressInput />}>
             <AddressList />
-          </Address>
+          </FormLayout>
         </Route>
         <Route path="/guestBook">
-          <Address form={<GuestBookInput />}>
+          <FormLayout form={<GuestBookInput />}>
             <GuestBookList />
-          </Address>
+          </FormLayout>
         </Route>
 
         {/* <Route

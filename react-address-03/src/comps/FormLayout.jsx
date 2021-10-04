@@ -2,7 +2,7 @@ import React from "react";
 
 import AppContextProvider from "../context/AppContextProvider";
 
-function Address({ form, children }) {
+function FormLayout({ form, children }) {
   return (
     <AppContextProvider>
       <main>
@@ -13,4 +13,4 @@ function Address({ form, children }) {
   );
 }
 
-export default Address;
+export default FormLayout;
