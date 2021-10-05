@@ -1,0 +1,18 @@
+.main_nav {
+  display: flex;
+
+  list-style: none;
+  background-color: rgb(52, 116, 116);
+  color: white;
+}
+
+.main_nav a {
+  padding: 0.8rem;
+
+  text-decoration: none;
+  color: inherit;
+}
+
+.main_nav a:nth-of-type(4) {
+  margin-left: auto;
+}

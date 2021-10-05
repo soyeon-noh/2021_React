@@ -1,0 +1,23 @@
+.login_form {
+  width: 50vh;
+  margin: 2rem auto;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.login_form input {
+  padding: 0.5rem;
+  margin: 0.3rem 0;
+  border: 1px solid #aaa;
+}
+
+.login_form button {
+  padding: 0.7rem;
+  margin: 1rem 0;
+
+  color: white;
+  background-color: #282c34;
+  border: none;
+  border-radius: 5px;
+}

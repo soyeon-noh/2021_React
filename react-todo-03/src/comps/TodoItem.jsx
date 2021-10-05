@@ -16,7 +16,7 @@ function TodoItem({ todo }) {
         onClick={onCompClick}
         data-todo-id={t_id}
       >
-        {t_text}
+        {t_text} 
       </div>
       {/* 선택정 랜더링
 	  현재 todo의 t_comp 값이 true 일때만 
