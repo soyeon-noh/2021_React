@@ -6,6 +6,7 @@ import { Route } from "react-router";
 import Notice from "./Notice";
 import BBs from "./BBs";
 import { useUserContext } from "../context/UserContextProvider";
+import Logout from "./Logout";
 
 const MainComp = () => {
   const { user, setUser } = useUserContext();
@@ -38,6 +39,9 @@ const MainComp = () => {
       </Route>
       <Route path="/join" exact>
         <JoinForm />
+      </Route>
+      <Route path="/logout">
+        <Logout />
       </Route>
     </MainNav>
   );
