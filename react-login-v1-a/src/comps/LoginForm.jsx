@@ -51,7 +51,7 @@ const LoginForm = () => {
       // 유저정보와 userid가 일치하는지 확인하고
       //   const user = users.find((item) => item.userid === account.userid);
 
-      console.log("user", user);
+      //   console.log("user", user);
 
       // 로그인 실패
       if (!user) {

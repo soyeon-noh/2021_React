@@ -4,6 +4,7 @@ import LoginForm from "./comps/LoginForm";
 import MainNav from "./comps/MainNav";
 import JoinForm from "./comps/JoinForm";
 import { Route } from "react-router";
+import AppContextProvider from "./context/UserContextProvider";
 
 const navList = [
   { id: 0, title: "Home", link: "/" },
@@ -19,10 +20,17 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
       </header>
-      <MainNav navList={navList}>
-        <Route path="/login" component={LoginForm} />
-        <Route path="/join" component={JoinForm} />
-      </MainNav>
+      <AppContextProvider>
+        <MainNav navList={navList}>
+          {/* <Route path="/login" component={LoginForm} /> */}
+          <Route path="/login" exact>
+            <LoginForm />
+          </Route>
+          <Route path="/join" exact>
+            <JoinForm />
+          </Route>
+        </MainNav>
+      </AppContextProvider>
     </div>
   );
 }
