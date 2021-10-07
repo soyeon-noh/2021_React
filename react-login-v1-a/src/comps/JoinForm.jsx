@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 
 import "../css/JoinForm.css";
+import Button from "../mycustom/Button";
 
 const JoinForm = () => {
   const [joinUser, setJoinUser] = useState({
@@ -105,7 +106,9 @@ const JoinForm = () => {
         placeholder="이메일을 입력해주세요"
         onChange={onChangeAccount}
       />
-      <button onClick={onSubmitAccount}>회원가입</button>
+      <Button backgroundColor="#513d88" onClick={onSubmitAccount}>
+        회원가입
+      </Button>
     </div>
   );
 };
