@@ -1,8 +1,11 @@
 const fetchLogin = async (userid, password) => {
   // 이미 선언된 fetchOption에 body 속성을 추가하기
-  fetchOption.body(JSON.stringify({ userid, password }));
+  fetchOption.body = JSON.stringify({ userid, password });
 
-  const response = await fetch("http://localhost:8080/user/login", fetchOption);
+  const response = await fetch(
+    "http://localhost:8080/users/login",
+    fetchOption
+  );
 
   if (response.ok) {
     const resultUser = await response.json();
