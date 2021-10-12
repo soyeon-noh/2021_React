@@ -5,7 +5,6 @@ function CompButton({ children, onClick }) {
     backgroundColor: "#61dafb",
     color: "white",
     border: "1px solid #61dafb",
-    padding: "18px",
   };
   return (
     <button style={btnStyle} onClick={onClick}>
