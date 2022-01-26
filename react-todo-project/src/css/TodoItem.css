@@ -5,6 +5,8 @@
   cursor: pointer;
   transition: 0.5s;
   user-select: none; /* 더블클릭했을때 블럭씌워지는거 없애는 속성*/
+
+  font-size: 1rem;
 }
 
 .todo_item:hover {

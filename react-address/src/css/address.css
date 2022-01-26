@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:200");
+
+.address_input {
+  display: flex;
+  flex-direction: column;
+
+  margin: 1rem auto;
+
+  font-family: "Raleway";
+  font-weight: 600;
+}
+
+.address_input label,
+.address_input input,
+.address_input button {
+  display: inline-block;
+  width: 50vw;
+  margin: 0.5vh auto;
+}
+
+.address_input label {
+  text-align: left;
+}
+
+.address_input input {
+  padding: 0.6rem;
+
+  outline: none;
+
+  border: none;
+  border-bottom: 1px solid #282c34;
+}
+
+.address_input button {
+  padding: 0.6rem;
+  border: none;
+  background-color: #282c34;
+  color: white;
+}
+
+.address_input button:hover {
+  background-color: darkred;
+}
+
+/* .address_table tr {
+  border-bottom: 1px solid black;
+} 이거안됨..*/
+
+.address_list {
+  width: 50vw;
+  margin: 0 auto;
+}
+
+.address_table {
+  width: 100%;
+
+  margin: 1rem auto;
+  border-collapse: collapse;
+  border-top: 1px solid #282c34;
+}
+
+.address_table th,
+.address_table td {
+  padding: 10px;
+  border-bottom: 1px solid #282c34;
+}
+
+.address_table th {
+  font-family: "Raleway";
+  font-weight: 600;
+}
+
+.address_table td {
+  font-family: "Raleway";
+  font-weight: 500;
+}

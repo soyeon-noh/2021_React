@@ -14,12 +14,13 @@ const AuthRoute = ({ children }) => {
       history.replace("/login");
     }
     await setUser(resultUser);
+    console.log("user가 setting 된 것을 확인", user);
 
     // if (!user?.userid) {
     //   // state값이 없으면
     //   history.replace("/login"); // /login 으로 이동
     // }
-  });
+  }, []);
 
   useEffect(fetchCallback, [fetchCallback]);
 

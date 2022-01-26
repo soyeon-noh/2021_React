@@ -1,10 +1,10 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { TodoMain, TodoInput, TodoList } from "./comps";
-import { MyButton, HomeButton, CompButton } from "./comps";
 import { LoginForm, LoginRoute, AuthRoute } from "./comps";
 import { Route } from "react-router-dom";
 import { UserContextProvider } from "./context";
+import { TodoHeader } from "./comps/Todo/TodoHeader";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
             </Route>
             <Route exact path="/">
               <AuthRoute>
-                <TodoMain header="TODO LIST" form={<TodoInput />}>
+                <TodoMain header={<TodoHeader />} form={<TodoInput />}>
                   <TodoList />
                 </TodoMain>
               </AuthRoute>

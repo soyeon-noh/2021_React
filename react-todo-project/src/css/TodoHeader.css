@@ -1,0 +1,12 @@
+.todo_header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.todo_header button {
+  background-color: inherit;
+  border: 1px solid white;
+  border-radius: 25px;
+  color: white;
+}

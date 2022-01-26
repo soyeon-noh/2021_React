@@ -33,7 +33,7 @@ const fetchLogout = async () => {
 };
 
 const fetchUser = async () => {
-  console.log("USER");
+  console.log("여기가 계속 반복됨");
   const response = await fetch("http://localhost:8080/users", fetchOption);
   if (response.ok) {
     return await response.json();

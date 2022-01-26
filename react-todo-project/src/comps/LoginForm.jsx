@@ -6,7 +6,7 @@ import { fetchLogin } from "../modules/fetchModules";
 import { CompButton } from "../comps/index";
 
 const LoginForm = () => {
-  const { setUser } = useUserContext();
+  const { user, setUser } = useUserContext();
 
   const [account, setAccount] = useState({
     userid: "",
@@ -26,7 +26,7 @@ const LoginForm = () => {
     const { userid, password } = account;
     const resultUser = await fetchLogin(userid, password);
     await setUser(resultUser);
-    history.replace("/");
+    if (user?.userid) history.replace("/");
   };
 
   return (
