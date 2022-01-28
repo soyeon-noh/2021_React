@@ -1,14 +1,8 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { useBoardContext } from "../context/BoardContextProvider";
 
 const BoardList = () => {
-  const [boardList, setBoardList] = useState([
-    // {
-    //   b_title: "임시데이터",
-    //   b_name: "임시데이터",
-    //   b_date: "임시데이터",
-    //   b_content: "임시데이터",
-    // },
-  ]);
+  const { boardList, setBoardList } = useBoardContext();
 
   const fetchList = async () => {
     const result = await fetch("http://localhost:8080/");
@@ -20,11 +14,6 @@ const BoardList = () => {
     const result = await fetchList();
     console.log("result", result);
     setBoardList(result);
-    // result.map((data) => {
-    //   console.log("data", data);
-    //   setBoardList([...boardList, data]);
-    // });
-    // console.log("boardList", boardList);
   };
 
   useEffect(settingList, []);

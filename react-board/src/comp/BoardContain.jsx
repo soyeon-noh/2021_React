@@ -1,7 +1,20 @@
 import React from "react";
+import { useBoardContext } from "../context/BoardContextProvider";
+import BoardButton from "./BoardButton";
 import BoardList from "./BoardList";
 
 const BoardContain = () => {
+  const { switchModal } = useBoardContext();
+
+  const btn_write = () => {
+    switchModal();
+  };
+  const btn_update = () => {
+    switchModal();
+  };
+  const btn_delete = () => {
+    switchModal();
+  };
   return (
     <div>
       <table>
@@ -14,6 +27,12 @@ const BoardContain = () => {
         </thead>
         <BoardList />
       </table>
+
+      <BoardButton
+        btn_write={btn_write}
+        btn_update={btn_update}
+        btn_delete={btn_delete}
+      />
     </div>
   );
 };

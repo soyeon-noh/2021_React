@@ -1,12 +1,20 @@
 import logo from "./logo.svg";
 import "./App.css";
 import BoardContain from "./comp/BoardContain";
+import BoardContextProvider from "./context/BoardContextProvider";
+import Modal from "./comp/Modal";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <BoardContain />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <BoardContextProvider>
+          <Modal />
+          <BoardContain />
+        </BoardContextProvider>
+      </div>
+    </BrowserRouter>
   );
 }
 
