@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useBoardContext } from "../context/BoardContextProvider";
 
 const BoardList = () => {
-  const { boardList, setBoardList } = useBoardContext();
+  const { boardList, setBoardList, isModal } = useBoardContext();
 
   const fetchList = async () => {
     const result = await fetch("http://localhost:8080/");
@@ -16,7 +16,7 @@ const BoardList = () => {
     setBoardList(result);
   };
 
-  useEffect(settingList, []);
+  useEffect(settingList, [isModal]);
 
   const list = boardList.map((data) => {
     return (
