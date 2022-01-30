@@ -4,7 +4,7 @@ import BoardButton from "./BoardButton";
 import BoardList from "./BoardList";
 
 const BoardContain = () => {
-  const { switchModal } = useBoardContext();
+  const { switchModal, checkList } = useBoardContext();
 
   const btn_write = () => {
     switchModal();
@@ -12,8 +12,21 @@ const BoardContain = () => {
   const btn_update = () => {
     switchModal();
   };
-  const btn_delete = () => {
-    switchModal();
+  const btn_delete = async () => {
+    const res = await fetch("http://localhost:8080/board", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(checkList),
+    });
+    const result = await res.text();
+
+    if (result == "OK") {
+      alert("삭제완료");
+    } else {
+      alert("오류 발생");
+    }
   };
   return (
     <div>

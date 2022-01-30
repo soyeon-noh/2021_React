@@ -2,12 +2,13 @@ import { useCallback, useEffect, useState } from "react";
 import { useBoardContext } from "../context/BoardContextProvider";
 
 const BoardList = () => {
-  const { boardList, setBoardList, isModal } = useBoardContext();
+  const { boardList, setBoardList, isModal, checkList, onChangeHandler } =
+    useBoardContext();
 
   const fetchList = async () => {
-    const result = await fetch("http://localhost:8080/");
-    const res = await result.json();
-    return res;
+    const res = await fetch("http://localhost:8080/");
+    const result = await res.json();
+    return result;
   };
 
   const settingList = async () => {
@@ -22,7 +23,12 @@ const BoardList = () => {
     return (
       <tr>
         <td>
-          <input type="checkbox" />
+          <input
+            type="checkbox"
+            id={data.b_seq}
+            onChange={onChangeHandler}
+            checked={checkList.includes(`${data.b_seq}`) ? true : false}
+          />
         </td>
         <td>{data.b_title}</td>
         <td>{data.b_name}</td>

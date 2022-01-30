@@ -51,6 +51,21 @@ const BoardContextProvider = ({ children }) => {
     }
   };
 
+  const [checkList, setCheckList] = useState([]);
+
+  const onChangeHandler = (e) => {
+    const seq = e.target.id;
+    const checked = e.target.checked;
+    // console.log(seq, checked);
+    if (checked) {
+      setCheckList([...checkList, seq]);
+      console.log(checkList);
+    } else {
+      setCheckList(checkList.filter((check) => check !== seq));
+      console.log(checkList);
+    }
+  };
+
   const props = {
     boardList,
     setBoardList,
@@ -59,6 +74,8 @@ const BoardContextProvider = ({ children }) => {
     switchModal,
     onChange,
     saveBoard,
+    checkList,
+    onChangeHandler,
   };
 
   // 위에서 선언한 AppContext 를 사용해서 Provider
