@@ -3,15 +3,13 @@ import { useBoardContext } from "../context/BoardContextProvider";
 
 import Write from "./Write";
 
-const Modal = () => {
+const Modal = ({ children }) => {
   const { isModal } = useBoardContext();
   return (
     <>
       {isModal ? (
         <div className="black_modal">
-          <div className="white_modal">
-            <Write />
-          </div>
+          <div className="white_modal">{children}</div>
         </div>
       ) : (
         <></>

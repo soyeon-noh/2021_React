@@ -9,12 +9,19 @@ const BoardContain = () => {
   const btn_write = () => {
     switchModal();
   };
-  const btn_update = () => {
+  const btn_update = async (b_seq) => {
+    const res = await fetch(`http://localhost:8080/board/${b_seq}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(checkList),
+    });
     switchModal();
   };
   const btn_delete = async () => {
     const res = await fetch("http://localhost:8080/board", {
-      method: "PUT",
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },

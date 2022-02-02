@@ -19,9 +19,14 @@ const BoardList = () => {
 
   useEffect(settingList, [isModal]);
 
+  const onClickHandler = (e) => {
+    const b_seq = e.target.id;
+    console.log(b_seq);
+  };
+
   const list = boardList.map((data) => {
     return (
-      <tr>
+      <tr id={data.b_seq}>
         <td>
           <input
             type="checkbox"
