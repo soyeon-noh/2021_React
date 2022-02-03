@@ -11,9 +11,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <BoardContextProvider>
-          <Modal>
-            <Write />
-          </Modal>
+          <Modal />
           <BoardContain />
         </BoardContextProvider>
       </div>

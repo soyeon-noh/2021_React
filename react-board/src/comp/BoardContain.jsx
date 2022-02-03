@@ -6,10 +6,10 @@ import BoardList from "./BoardList";
 const BoardContain = () => {
   const { switchModal, checkList } = useBoardContext();
 
-  const btn_write = () => {
+  const writeBoard = () => {
     switchModal();
   };
-  const btn_update = async (b_seq) => {
+  const updateBoard = async (b_seq) => {
     const res = await fetch(`http://localhost:8080/board/${b_seq}`, {
       method: "POST",
       headers: {
@@ -19,7 +19,7 @@ const BoardContain = () => {
     });
     switchModal();
   };
-  const btn_delete = async () => {
+  const deleteBoard = async () => {
     const res = await fetch("http://localhost:8080/board", {
       method: "POST",
       headers: {
@@ -49,9 +49,9 @@ const BoardContain = () => {
       </table>
 
       <BoardButton
-        btn_write={btn_write}
-        btn_update={btn_update}
-        btn_delete={btn_delete}
+        btn_write={writeBoard}
+        btn_update={updateBoard}
+        btn_delete={deleteBoard}
       />
     </div>
   );

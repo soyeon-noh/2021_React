@@ -39,8 +39,8 @@ const BoardContextProvider = ({ children }) => {
     body: JSON.stringify(board),
   };
 
-  const saveBoard = async () => {
-    const res = await fetch(`http://localhost:8080/board`, fetch_option);
+  const createBoard = async () => {
+    const res = await fetch(`http://localhost:8080/`, fetch_option);
     // res.json(); 으로했을때 Uncaught (in promise) SyntaxError: Unexpected token O in JSON at position 0 문제발생
     const result = await res.text();
     if (result == "OK") {
@@ -67,13 +67,15 @@ const BoardContextProvider = ({ children }) => {
   };
 
   const props = {
+    board,
+    setBoard,
     boardList,
     setBoardList,
     isModal,
     setIsModal,
     switchModal,
     onChange,
-    saveBoard,
+    createBoard,
     checkList,
     onChangeHandler,
   };

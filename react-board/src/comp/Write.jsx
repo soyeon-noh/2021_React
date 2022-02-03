@@ -3,7 +3,7 @@ import { useBoardContext } from "../context/BoardContextProvider";
 import StaticButton from "./StaticButton";
 
 const Write = () => {
-  const { switchModal, onChange, saveBoard } = useBoardContext();
+  const { switchModal, onChange, createBoard } = useBoardContext();
 
   return (
     <div className="modal_write">
@@ -24,7 +24,7 @@ const Write = () => {
         <textarea name="b_content" onChange={onChange} />
       </div>
       <div>
-        <StaticButton className="btn_save" onClick={saveBoard}>
+        <StaticButton className="btn_save" onClick={createBoard}>
           작성
         </StaticButton>
         <StaticButton className="btn_close" onClick={switchModal}>

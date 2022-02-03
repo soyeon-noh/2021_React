@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useBoardContext } from "../context/BoardContextProvider";
-
+import Detail from "./Detail";
 import Write from "./Write";
 
 const Modal = ({ children }) => {
@@ -9,7 +9,10 @@ const Modal = ({ children }) => {
     <>
       {isModal ? (
         <div className="black_modal">
-          <div className="white_modal">{children}</div>
+          <div className="white_modal">
+            <Write />
+            <Detail />
+          </div>
         </div>
       ) : (
         <></>
