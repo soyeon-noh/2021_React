@@ -2,8 +2,14 @@ import { useCallback, useEffect, useState } from "react";
 import { useBoardContext } from "../context/BoardContextProvider";
 
 const BoardList = () => {
-  const { boardList, setBoardList, isModal, checkList, onChangeHandler } =
-    useBoardContext();
+  const {
+    board,
+    boardList,
+    setBoardList,
+    isModal,
+    checkList,
+    onChangeHandler,
+  } = useBoardContext();
 
   const fetchList = async () => {
     const res = await fetch("http://localhost:8080/");
@@ -14,12 +20,14 @@ const BoardList = () => {
   const settingList = async () => {
     const result = await fetchList();
     console.log("result", result);
+    console.log("BoardList board : ", board);
     setBoardList(result);
   };
 
   useEffect(settingList, [isModal]);
 
   const onClickHandler = (e) => {
+    console.log("e.target", e.target);
     const b_seq = e.target.id;
     console.log(b_seq);
   };
@@ -43,7 +51,7 @@ const BoardList = () => {
     );
   });
 
-  return <tbody>{list}</tbody>;
+  return <tbody onClick={onClickHandler}>{list}</tbody>;
 };
 
 export default BoardList;

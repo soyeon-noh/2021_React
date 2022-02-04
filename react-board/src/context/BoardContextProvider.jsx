@@ -11,8 +11,8 @@ const BoardContextProvider = ({ children }) => {
   /** MODAL */
   const [isModal, setIsModal] = useState(false);
 
-  const switchModal = () => {
-    isModal ? setIsModal(false) : setIsModal(true);
+  const switchModal = (whatModal) => {
+    isModal ? setIsModal(false) : setIsModal(whatModal);
   };
 
   /** BOARD */

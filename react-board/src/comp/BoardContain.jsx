@@ -7,7 +7,7 @@ const BoardContain = () => {
   const { switchModal, checkList } = useBoardContext();
 
   const writeBoard = () => {
-    switchModal();
+    switchModal("write");
   };
   const updateBoard = async (b_seq) => {
     const res = await fetch(`http://localhost:8080/board/${b_seq}`, {
