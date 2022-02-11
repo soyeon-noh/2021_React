@@ -53,3 +53,14 @@
   height: 1.5rem;
   width: 70%;
 }
+
+table.board_table {
+  background-color: antiquewhite;
+  border-collapse: collapse;
+}
+
+table.board_table th,
+table.board_table td {
+  border: 1px solid red;
+  padding: 20px;
+}

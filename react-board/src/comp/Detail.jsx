@@ -3,15 +3,7 @@ import { useBoardContext } from "../context/BoardContextProvider";
 import StaticButton from "./StaticButton";
 
 const Detail = ({ b_seq }) => {
-  const { board, setBoard, isModal } = useBoardContext();
-
-  const fetchBoard = async (b_seq) => {
-    const res = await fetch(`http://localhost:8080/board/${b_seq}`);
-    const jsonRes = await res.json();
-    setBoard(jsonRes);
-  };
-
-  useEffect(fetchBoard, [isModal]);
+  const { board, setBoard, isModal, switchModal } = useBoardContext();
 
   return (
     <div className="detail">
@@ -33,6 +25,7 @@ const Detail = ({ b_seq }) => {
       </div>
       <StaticButton>수정</StaticButton>
       <StaticButton>삭제</StaticButton>
+      <StaticButton onClick={switchModal}>닫기</StaticButton>
     </div>
   );
 };

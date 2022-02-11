@@ -4,11 +4,13 @@ import { useBoardContext } from "../context/BoardContextProvider";
 const BoardList = () => {
   const {
     board,
+    setBoard,
     boardList,
     setBoardList,
     isModal,
     checkList,
     onChangeHandler,
+    switchModal,
   } = useBoardContext();
 
   const fetchList = async () => {
@@ -16,28 +18,43 @@ const BoardList = () => {
     const result = await res.json();
     return result;
   };
+  const fetchDetail = async (seq) => {
+    const res = await fetch(`http://localhost:8080/board/${seq}`);
+    const result = await res.json();
+
+    return result;
+  };
 
   const settingList = async () => {
     const result = await fetchList();
-    console.log("result", result);
-    console.log("BoardList board : ", board);
+    // console.log("result", result);
+    // console.log("BoardList board : ", board);
     setBoardList(result);
   };
 
   useEffect(settingList, [isModal]);
 
-  const onClickHandler = (e) => {
-    console.log("e.target.cl", e.target);
-    const b_seq = e.target.id;
-    console.log(b_seq);
+  const onClickHandler = async (e) => {
+    // console.log("e.target", e.target);
+    const target = e.target;
+
+    if (target.className !== "checkbox") {
+      const tr = target.closest("tr");
+      const seq = tr.id;
+      // console.log(seq);
+      const detail = await fetchDetail(seq);
+      setBoard(detail);
+      switchModal("detail");
+    }
   };
 
   const list = boardList.map((data) => {
     return (
       <tr id={data.b_seq}>
-        <td>
+        <td className="checkbox">
           <input
             type="checkbox"
+            className="checkbox"
             id={data.b_seq}
             onChange={onChangeHandler}
             checked={checkList.includes(`${data.b_seq}`) ? true : false}

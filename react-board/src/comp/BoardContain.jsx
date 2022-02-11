@@ -35,19 +35,23 @@ const BoardContain = () => {
       alert("오류 발생");
     }
   };
+
   return (
     <div>
-      <table>
+      <table className="board_table">
         <thead>
-          {/* <th></th> */}
-          <th>제목</th>
-          <th>이름</th>
-          <th>작성일자</th>
-          <th>내용</th>
+          <tr>
+            <th>
+              <input type="checkbox" />
+            </th>
+            <th>제목</th>
+            <th>이름</th>
+            <th>작성일자</th>
+            <th>내용</th>
+          </tr>
         </thead>
-        <tbody>
-          <BoardList />
-        </tbody>
+
+        <BoardList />
       </table>
 
       <BoardButton
