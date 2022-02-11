@@ -4,7 +4,6 @@
   "private": true,
   "proxy": "http://localhost:8080",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "method-override": "^3.0.0",
@@ -22,8 +21,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
   "browserslist": {

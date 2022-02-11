@@ -7,9 +7,9 @@ const Modal = () => {
   const { isModal, board } = useBoardContext();
 
   let innerModal;
-  if (isModal === "detail") {
+  if (isModal === "write") {
     innerModal = <Write />;
-  } else {
+  } else if (isModal === "detail") {
     innerModal = <Detail />;
   }
 

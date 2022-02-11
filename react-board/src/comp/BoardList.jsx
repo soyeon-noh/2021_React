@@ -27,7 +27,7 @@ const BoardList = () => {
   useEffect(settingList, [isModal]);
 
   const onClickHandler = (e) => {
-    console.log("e.target", e.target);
+    console.log("e.target.cl", e.target);
     const b_seq = e.target.id;
     console.log(b_seq);
   };

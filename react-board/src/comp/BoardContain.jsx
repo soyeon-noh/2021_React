@@ -39,13 +39,15 @@ const BoardContain = () => {
     <div>
       <table>
         <thead>
-          <th></th>
+          {/* <th></th> */}
           <th>제목</th>
           <th>이름</th>
           <th>작성일자</th>
           <th>내용</th>
         </thead>
-        <BoardList />
+        <tbody>
+          <BoardList />
+        </tbody>
       </table>
 
       <BoardButton
