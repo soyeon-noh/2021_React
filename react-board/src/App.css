@@ -57,6 +57,7 @@
 table.board_table {
   background-color: antiquewhite;
   border-collapse: collapse;
+  margin: 0 auto;
 }
 
 table.board_table th,

@@ -14,7 +14,7 @@ const BoardList = () => {
   } = useBoardContext();
 
   const fetchList = async () => {
-    const res = await fetch("http://localhost:8080/");
+    const res = await fetch("http://localhost:8080/board");
     const result = await res.json();
     return result;
   };

@@ -20,24 +20,37 @@ const BoardContain = () => {
     switchModal();
   };
   const deleteBoard = async () => {
-    const res = await fetch("http://localhost:8080/board", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(checkList),
-    });
-    const result = await res.text();
+    // const res = await fetch("http://localhost:8080/board/delete", {
 
-    if (result == "OK") {
-      alert("삭제완료");
-    } else {
-      alert("오류 발생");
+    for (let check in checkList) {
+      let seq = checkList[check];
+      const res = await fetch(`http://localhost:8080/board/${seq}`, {
+        // method: "POST",
+        method: "DELETE",
+        // headers: {
+        //   "Content-Type": "application/json",
+        // },
+        // body: JSON.stringify(checkList),
+      });
+      const result = await res.text();
+      if (!result) {
+        alert("잘못된 요청임");
+        return;
+      }
     }
+    alert("삭제완료");
+
+    // console.log("결과아아아아", result);
+
+    // if (result == "OK") {
+    //   alert("삭제완료");
+    // } else {
+    //   alert("오류 발생");
+    // }
   };
 
   return (
-    <div>
+    <div className="BoardContain">
       <table className="board_table">
         <thead>
           <tr>
